@@ -1,0 +1,61 @@
+/*header { 
+    padding: .5vw;
+    font-size: 0;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-direction: column;
+    -webkit-flex-flow: row wrap; 
+    flex-flow: row wrap; 
+    display: -webkit-box;
+    display: flex;
+  }
+  header div { 
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto; 
+    width: 200px; 
+    margin: .5vw; 
+  }
+  header div img { 
+    width: 100%; 
+    height: auto; 
+  }
+  @media screen and (max-width: 400px) {
+    header div { margin: 0; }
+    header { padding: 0; }
+    
+  }
+
+  img {
+      height: 200px !important;
+      width: auto !important;
+  }
+
+  .card {
+      border: 1px solid gray;
+      border-radius: 2px;
+  }*/
+
+  .row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .row.display-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+  
+   /* not requied only for demo * */
+  .row [class*='col-'] {
+    background-color: #cceeee;
+    background-clip: content-box;
+  }
+  .panel {
+      height: 100%;
+  }
+
+  img {
+    height: 200px !important;
+    width: auto !important;
+}
+  

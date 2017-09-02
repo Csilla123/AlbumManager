@@ -1,0 +1,67 @@
+<h2>Albums of group: {{groupName}}</h2>
+<h3>Select an album, then click on it to list photos</h3>
+<!--div class="container">
+  <div class="row">
+    <div class="thumbnails" *ngFor="let album of albums">
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <img src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
+          <div class="caption">
+            <h3>{{album.name}}</h3>
+            <p>{{album.description}}</p>
+            <p align="center"><a [routerLink]="['/photos',album.id, album.name]" class="btn btn-primary btn-block">Open</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div-->
+
+
+<!--div class="container">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12 portfolio-item" *ngFor="let album of albums">
+      <a [routerLink]="['/photos',album.id, album.name]">
+              <img class="img-responsive" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
+          </a>
+    </div>
+  </div>
+</div-->
+<!--header>
+  <div *ngFor="let album of albums" class="card">
+    <a [routerLink]="['/photos',album.id, album.name]">
+    <img src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
+  </a>
+    <div class="caption">
+      <h3>{{album.name}}</h3>
+      <p>{{album.description}}</p>
+    </div>
+  </div>
+</header-->
+
+<!--header>
+  <div class="media" *ngFor="let album of albums">
+    <a [routerLink]="['/photos',album.id, album.name]">
+      <img class="d-flex mr-3" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
+    </a>
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{album.name}}</h5>
+      {{album.description}}
+    </div>
+  </div>
+</header-->
+
+<div class="container">
+  <div class="row display-flex">
+    <div class="col-xs-6 col-md-4"  *ngFor="let album of albums">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <a [routerLink]="['/photos',album.id, album.name]">
+              <img class="d-flex mr-3 img-responsive" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
+          </a>
+          <h5>{{album.name}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

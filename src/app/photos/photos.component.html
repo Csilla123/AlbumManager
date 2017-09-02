@@ -1,0 +1,18 @@
+<h2>Photos of album: {{albumName}}</h2>
+<table>
+  <tr>
+    <th>Sorszám</th>
+    <th>Likeok száma</th>
+    <th>Kép</th>
+    <th>Készítette</th>
+    <th>Kommentek</th>
+  </tr>
+  <tr *ngFor="let photo of photos; index as i" class="photo">
+    <td>{{i+1}}</td>
+    <td>{{photo.likes}}</td>
+    <td><img src="{{photo.source}}" alt="" width="200px"></td>
+    <td> {{photo.name}}</td>
+    <td>{{photo.comments}}</td>
+  </tr>
+</table>
+
