@@ -1,6 +1,6 @@
 {
-    "HELLO": "hello {{value}}",
     "ALBUM_MANAGER": "Album Manager",
     "HOME": "Home",
-    "PRIVACY_POLICY": "Privacy policy"
+    "PRIVACY_POLICY": "Privacy policy",
+    "WELCOME":"Welcome {{name}}!"
 }
