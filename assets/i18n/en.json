@@ -2,5 +2,18 @@
     "ALBUM_MANAGER": "Album Manager",
     "HOME": "Home",
     "PRIVACY_POLICY": "Privacy policy",
-    "WELCOME":"Welcome {{name}}!"
+    "WELCOME":"Welcome {{name}}!",
+    "LIST_GROUPS": "List groups",
+    "GROUPS_TITLE": "Select a group in which you are admin, then click on it to list albums",
+    "SELECT_ALBUM": "Select an album, then click on it to list photos",
+    "LINK_TO_FB": "Link to Facebook",
+    "ALBUMS_OF_GROUP": "Albums of group {{group}}:",
+    "PHOTOS_OF_ALBUM": "Photos of album {{album}}:",
+    "NUMBER": "Nr.",
+    "LIKES": "Likes",
+    "PHOTO": "Photo",
+    "AUTHOR" : "Author",
+    "COMMENTS": "Comments"
+
+    
 }
