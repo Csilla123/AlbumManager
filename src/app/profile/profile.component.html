@@ -1,4 +1,3 @@
-<p>
-  Welcome {{profile.name}} !
-</p>
-<button class="btn btn-primary" (click)= "getGroups()" >List groups</button>
+
+  <div [translate]="'WELCOME'" [translateParams]="{name: profile.name}"></div>
+<button class="btn btn-primary" (click)= "getGroups()" >{{'LIST_GROUPS' | translate}}</button>

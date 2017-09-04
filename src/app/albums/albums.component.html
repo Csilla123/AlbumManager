@@ -1,67 +1,22 @@
-<h2>Albums of group: {{groupName}}</h2>
-<h3>Select an album, then click on it to list photos</h3>
-<!--div class="container">
-  <div class="row">
-    <div class="thumbnails" *ngFor="let album of albums">
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <img src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
-          <div class="caption">
-            <h3>{{album.name}}</h3>
-            <p>{{album.description}}</p>
-            <p align="center"><a [routerLink]="['/photos',album.id, album.name]" class="btn btn-primary btn-block">Open</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div-->
+<h2 [translate]="'ALBUMS_OF_GROUP'" [translateParams]="{group: groupName}"></h2>
+<h3>{{'SELECT_ALBUM' | translate }} </h3>
 
-
-<!--div class="container">
-  <div class="row">
-    <div class="col-md-3 col-sm-6 col-xs-12 portfolio-item" *ngFor="let album of albums">
-      <a [routerLink]="['/photos',album.id, album.name]">
-              <img class="img-responsive" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
-          </a>
-    </div>
-  </div>
-</div-->
-<!--header>
-  <div *ngFor="let album of albums" class="card">
-    <a [routerLink]="['/photos',album.id, album.name]">
-    <img src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
-  </a>
-    <div class="caption">
-      <h3>{{album.name}}</h3>
-      <p>{{album.description}}</p>
-    </div>
-  </div>
-</header-->
-
-<!--header>
-  <div class="media" *ngFor="let album of albums">
-    <a [routerLink]="['/photos',album.id, album.name]">
-      <img class="d-flex mr-3" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
-    </a>
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">{{album.name}}</h5>
-      {{album.description}}
-    </div>
-  </div>
-</header-->
-
-<div class="container">
-  <div class="row display-flex">
-    <div class="col-xs-6 col-md-4"  *ngFor="let album of albums">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <a [routerLink]="['/photos',album.id, album.name]">
-              <img class="d-flex mr-3 img-responsive" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}">
-          </a>
-          <h5>{{album.name}}</h5>
-        </div>
-      </div>
-    </div>
-  </div>
+<div *ngIf="albums.length ==0" >
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loading...">
 </div>
+<ul class="list" *ngIf="albums.length >0">
+  <li class="list-item" *ngFor="let album of albums">
+    <div class="list-content">
+      <h2>{{album.name}}</h2>
+      <a [routerLink]="['/photos',album.id, album.name]">
+      <img height="200" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}"/>
+      </a>
+      <p>{{album.description}}</p>
+      <a href="{{album.link}}">{{'LINK_TO_FB' | translate}}</a>
+    </div>
+  </li>
+	
+	
+   
+</ul>
+  

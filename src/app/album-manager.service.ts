@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FacebookService, LoginResponse, LoginOptions } from 'ngx-facebook';
+import { environment } from './../environments/environment';
 import * as moment from 'moment';
 
 @Injectable()
@@ -7,13 +8,22 @@ export class AlbumManagerService {
 
   static instance: AlbumManagerService;
   albumCache = [];
+  appId = '1652103354863381';
 
   constructor(private fb: FacebookService) {
     if (!AlbumManagerService.instance) {
+      console.log('ENV IS ', environment);
+
+      if (environment.production) {
+        this.appId = '540883586242921';
+      }
+
       this.fb.init({
-        appId: '1652103354863381',
+        appId: this.appId,
         version: 'v2.10'
       });
+
+
     }
     return AlbumManagerService.instance = AlbumManagerService.instance || this;
   }
@@ -26,7 +36,8 @@ export class AlbumManagerService {
     const loginOptions: LoginOptions = {
       enable_profile_selector: true,
       return_scopes: true,
-      scope: 'public_profile,user_friends,email,pages_show_list,user_photos, user_managed_groups'
+     // scope: 'public_profile,user_friends,email,pages_show_list,user_photos, user_managed_groups'
+      scope: 'public_profile,user_friends,email, user_managed_groups'
     };
 
     return this.fb.login(loginOptions)
@@ -78,20 +89,20 @@ export class AlbumManagerService {
 
   getAllAlbumsSortedByCreationDateDesc(groupId: string) {
     let albums: any[];
-    let cachedAlbums = this.findInCahce(this.albumCache,groupId);
-    if(cachedAlbums){
+    let cachedAlbums = this.findInCahce(this.albumCache, groupId);
+    if (cachedAlbums) {
       return Promise.resolve(cachedAlbums.data);
     }
-    return this.fb.api('/' + groupId + '/albums?limit=100&fields=cover_photo{images},name,description,created_time')
+    return this.fb.api('/' + groupId + '/albums?limit=100&fields=cover_photo{images},name,description,created_time,link')
       .then((res: any) => {
         albums = res.data;
         if (res.paging.next) {
           return this.getNextAlbums(res.paging.next, albums).then((res: any) => {
-            this.albumCache.push({id:groupId,data:albums});
+            this.albumCache.push({ id: groupId, data: albums });
             return albums.sort(this.sortedByCreationDateDesc);
           });
         } else {
-          this.albumCache.push({id:groupId,data:albums});
+          this.albumCache.push({ id: groupId, data: albums });
           return albums.sort(this.sortedByCreationDateDesc);
         }
 
@@ -99,8 +110,8 @@ export class AlbumManagerService {
       .catch(this.handleError);
   }
 
-  findInCahce(cache:any[],key:string){
-    return cache.find((elem)=>{return elem.id===key});
+  findInCahce(cache: any[], key: string) {
+    return cache.find((elem) => { return elem.id === key });
   }
 
   sortedByCreationDateDesc(a, b) {

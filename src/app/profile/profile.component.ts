@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   constructor(private service: AlbumManagerService, private router: Router) { }
-
   profile = {
     id: '',
     name: ''

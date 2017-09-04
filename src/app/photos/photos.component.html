@@ -1,11 +1,11 @@
-<h2>Photos of album: {{albumName}}</h2>
+<h2 [translate]="'PHOTOS_OF_ALBUM'" [translateParams]="{album: albumName}"></h2>
 <table>
   <tr>
-    <th>Sorszám</th>
-    <th>Likeok száma</th>
-    <th>Kép</th>
-    <th>Készítette</th>
-    <th>Kommentek</th>
+    <th>{{'NUMBER' | translate}}</th>
+    <th>{{'LIKES' | translate}}</th>
+    <th>{{'PHOTO' | translate}}</th>
+    <th>{{'AUTHOR' | translate}}</th>
+    <th>{{'COMMENTS'| translate}}</th>
   </tr>
   <tr *ngFor="let photo of photos; index as i" class="photo">
     <td>{{i+1}}</td>
