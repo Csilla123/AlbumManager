@@ -19,7 +19,8 @@
     "ABOUT": "About",
     "CONTACT":"Contact",
     "ABOUT_DESC":"Manage your Facebook albums with Album Manager app",
-    "CONTACT_DESC":"Ferenczy Csilla"
+    "CONTACT_DESC":"Ferenczy Csilla",
+    "LIST_ALBUMS":"List albums"
 
     
 }

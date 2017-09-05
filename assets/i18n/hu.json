@@ -19,6 +19,7 @@
     "ABOUT": "Leírás",
     "CONTACT":"Kapcsolat",
     "ABOUT_DESC":"Facebook albumok kezelése",
-    "CONTACT_DESC":"Ferenczy Csilla"
+    "CONTACT_DESC":"Ferenczy Csilla",
+    "LIST_ALBUMS":"Albumok listázása"
 
 }
