@@ -13,7 +13,9 @@
     "LIKES": "Likes",
     "PHOTO": "Photo",
     "AUTHOR" : "Author",
-    "COMMENTS": "Comments"
+    "COMMENTS": "Comments",
+    "LOGIN": "Log in to Facebook",
+    "WELCOME_MESSAGE": "Manage your Facebook albums with Album Manager app"
 
     
 }

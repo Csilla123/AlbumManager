@@ -13,6 +13,8 @@
     "LIKES": "Likeok száma",
     "PHOTO": "Kép",
     "AUTHOR" : "Készítette",
-    "COMMENTS": "Kommentek"
+    "COMMENTS": "Kommentek",
+    "LOGIN": "Bejelentkezés Facebook",
+    "WELCOME_MESSAGE": "Facebook albumok kezelése"
 
 }
