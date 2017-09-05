@@ -15,7 +15,11 @@
     "AUTHOR" : "Author",
     "COMMENTS": "Comments",
     "LOGIN": "Log in to Facebook",
-    "WELCOME_MESSAGE": "Manage your Facebook albums with Album Manager app"
+    "WELCOME_MESSAGE": "Manage your Facebook albums with Album Manager app",
+    "ABOUT": "About",
+    "CONTACT":"Contact",
+    "ABOUT_DESC":"Manage your Facebook albums with Album Manager app",
+    "CONTACT_DESC":"Ferenczy Csilla"
 
     
 }

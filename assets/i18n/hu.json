@@ -15,6 +15,10 @@
     "AUTHOR" : "Készítette",
     "COMMENTS": "Kommentek",
     "LOGIN": "Bejelentkezés Facebook",
-    "WELCOME_MESSAGE": "Facebook albumok kezelése"
+    "WELCOME_MESSAGE": "Facebook albumok kezelése",
+    "ABOUT": "Leírás",
+    "CONTACT":"Kapcsolat",
+    "ABOUT_DESC":"Facebook albumok kezelése",
+    "CONTACT_DESC":"Ferenczy Csilla"
 
 }
