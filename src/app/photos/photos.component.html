@@ -10,7 +10,7 @@
   <tr *ngFor="let photo of photos; index as i" class="photo">
     <td>{{i+1}}</td>
     <td>{{photo.likes}}</td>
-    <td><img src="{{photo.source}}" alt="" width="200px"></td>
+    <td><a href="{{photo.link}}"><img src="{{photo.source}}" alt="" width="200px"></a></td>
     <td> {{photo.name}}</td>
     <td>{{photo.comments}}</td>
   </tr>

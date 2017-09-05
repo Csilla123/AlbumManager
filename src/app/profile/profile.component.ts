@@ -3,7 +3,7 @@ import { AlbumManagerService } from '../album-manager.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
     id: '',
     name: ''
   };
+  logged = false;
 
   ngOnInit() {
     this.init();
@@ -23,22 +24,36 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/groups', this.profile.id]);
   }
 
+  getPages() {
+    this.router.navigate(['/pages', this.profile.id]);
+  }
+
+  getAlbums() {
+    this.router.navigate(['/albums', this.profile.id]);
+  }
+
   init() {
+    if(!this.profile.id ){
     this.service.getLoginStatus().then((res) => {
       if (res.status === "connected") {
+        this.logged = true;
         this.service.getProfile().then(
           (res: any) => {
             this.profile = res;
           });
-      } else {
-        this.service.loginWithOptions().then(() => this.service.getProfile()).then(
-          (res: any) => {
-            this.profile = res;
-          }
-        );
-      }
+      } 
     })
+  }
 
+  }
+
+  login(){
+    this.service.loginWithOptions().then(() => this.service.getProfile()).then(
+      (res: any) => {
+        this.logged = true;
+        this.profile = res;
+      }
+    );
   }
 
 }

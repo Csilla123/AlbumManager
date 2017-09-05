@@ -1,22 +1,20 @@
-<h2 [translate]="'ALBUMS_OF_GROUP'" [translateParams]="{group: groupName}"></h2>
-<h3>{{'SELECT_ALBUM' | translate }} </h3>
+<div class="center">
+  <h2 *ngIf="groupName" [translate]="'ALBUMS_OF_GROUP'" [translateParams]="{group: groupName}"></h2>
+  <h3>{{'SELECT_ALBUM' | translate }} </h3>
+</div>
 
-<div *ngIf="albums.length ==0" >
+<div *ngIf="albums.length ==0" class="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loading...">
 </div>
 <ul class="list" *ngIf="albums.length >0">
   <li class="list-item" *ngFor="let album of albums">
     <div class="list-content">
-      <h2>{{album.name}}</h2>
+      <h3>{{album.name}}</h3>
       <a [routerLink]="['/photos',album.id, album.name]">
-      <img height="200" src="{{album.cover_photo.images[0].source}}" alt="{{album.name}}"/>
+      <img height="200" src="{{album.cover_photo ? album.cover_photo.images[0].source : ''}}" alt="{{album.name}}"/>
       </a>
       <p>{{album.description}}</p>
       <a href="{{album.link}}">{{'LINK_TO_FB' | translate}}</a>
     </div>
   </li>
-	
-	
-   
 </ul>
-  

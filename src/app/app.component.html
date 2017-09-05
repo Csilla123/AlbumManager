@@ -1,11 +1,34 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{"ALBUM_MANAGER" | translate}}
-  </h1>
-<button class="btn btn-primary" (click)= "getProfile()" >{{"HOME" | translate}}</button>
-<router-outlet></router-outlet>
-<div>
-<a target="_blank" href="https://privacypolicies.com/privacy/view/aRYXEk">{{"PRIVACY_POLICY" | translate}}</a>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="#"> {{"ALBUM_MANAGER" | translate}}</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a routerLink="/" routerLinkActive="active">{{"HOME" | translate}}</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">{{"ABOUT" | translate}}</a></li>
+        <li><a routerLink="/contact"routerLinkActive="active">{{"CONTACT" | translate}}</a></li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+
+<!-- Begin page content -->
+<div class="content container">
+  <router-outlet></router-outlet>
 </div>
 
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"> <a target="_blank" href="https://privacypolicies.com/privacy/view/aRYXEk">{{"PRIVACY_POLICY" | translate}}</a></p>
+  </div>
+</footer>

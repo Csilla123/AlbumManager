@@ -15,7 +15,4 @@ export class AppComponent {
     translate.use(translate.getBrowserLang());
 
   }
-  getProfile() {
-    this.router.navigate(['']);
-  }
 }

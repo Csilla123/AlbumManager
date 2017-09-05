@@ -3,15 +3,15 @@ import { AlbumManagerService } from '../album-manager.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'groups',
-  templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.css']
+  selector: 'pages',
+  templateUrl: './pages.component.html',
+  styleUrls: ['./pages.component.css']
 })
-export class GroupsComponent implements OnInit {
+export class PagesComponent implements OnInit {
 
   constructor(private service: AlbumManagerService,private route: ActivatedRoute, private router: Router) { }
   
-    groups = [];
+    pages = [];
     profileId :string;
   
     ngOnInit() {
@@ -26,9 +26,9 @@ export class GroupsComponent implements OnInit {
     }
   
     init() {
-      this.service.getGroups(this.profileId).then(
+      this.service.getPages(this.profileId).then(
         (res: any) => {
-          this.groups = res;
+          this.pages = res;
         });
      
     } 

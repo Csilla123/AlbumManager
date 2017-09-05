@@ -23,6 +23,7 @@ h2 {
 /*Flex items*/
 .list {
   display: flex;
+  justify-content:  center;
   flex-wrap: wrap;
 }
 .list-item {
@@ -32,12 +33,17 @@ h2 {
 }
 @media all and (min-width: 40em) {
   .list-item {
-    width: 50%;
+    width: 25%;
   }
 }
 @media all and (min-width: 60em) {
   .list-item {
     width: 20%;
+  }
+}
+@media all and (min-width: 80em) {
+  .list-item {
+    width: 10%;
   }
 }
 .list-content {

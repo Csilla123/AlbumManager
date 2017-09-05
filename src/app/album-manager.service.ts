@@ -66,7 +66,7 @@ export class AlbumManagerService {
   * Get the user's profile
   */
   getProfile() {
-    return this.fb.api('/me')
+    return this.fb.api('/me?fields=id,name,picture.type(large)')
       .then((res: any) => {
         console.log('Got the users profile', res);
         return res;
@@ -79,9 +79,21 @@ export class AlbumManagerService {
   * Get albums for given profile
   */
   getGroups(userId: string) {
-    return this.fb.api('/' + userId + '/groups')
+    return this.fb.api('/' + userId + '/groups?fields=name,description,cover')
       .then((res: any) => {
         console.log('Got groups', res);
+        return res.data;
+      })
+      .catch(this.handleError);
+  }
+
+  /**
+  * Get pages for given profile
+  */
+  getPages(userId: string) {
+    return this.fb.api('/' + userId + '/accounts?fields=name,description,cover')
+      .then((res: any) => {
+        console.log('Got pages', res);
         return res.data;
       })
       .catch(this.handleError);
@@ -142,7 +154,7 @@ export class AlbumManagerService {
 */
   getAlbumPhotos(albumId: string) {
     let photos: any[];
-    return this.fb.api('/' + albumId + '/photos?fields=name,images,reactions.limit(100),comments.limit(100)')
+    return this.fb.api('/' + albumId + '/photos?fields=name,images,source,reactions.limit(1000),comments.limit(100)')
       .then((res: any) => {
         photos = this.mapPhotosArray(res.data);
         if (res.paging.next) {
@@ -180,6 +192,7 @@ export class AlbumManagerService {
       name: photo.name,
       likes: photo.reactions ? photo.reactions.data.length : 0,
       source: photo.images[0].source,
+      link:photo.source,
       comments: photo.comments ? photo.comments.data.map(comment => comment.from.name + ": " + comment.message).join(";") : ""
     }
   }

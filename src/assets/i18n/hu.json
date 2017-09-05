@@ -7,12 +7,21 @@
     "GROUPS_TITLE": "Kattints egy csoportra az albumok listázásához",
     "SELECT_ALBUM": "Kattints az albumra a fényképek listázásához",
     "LINK_TO_FB": "Megnyitás Facebookon",
-    "ALBUMS_OF_GROUP": "{{group}} csoport albumai:",
+    "ALBUMS_OF_GROUP": "{{group}} albumai:",
     "PHOTOS_OF_ALBUM": "{{album}} album fotói:",
     "NUMBER": "Sorszám",
     "LIKES": "Likeok száma",
     "PHOTO": "Kép",
     "AUTHOR" : "Készítette",
-    "COMMENTS": "Kommentek"
-
+    "COMMENTS": "Kommentek",
+    "LOGIN": "Bejelentkezés Facebook",
+    "WELCOME_MESSAGE": "Facebook albumok kezelése",
+    "ABOUT": "Leírás",
+    "CONTACT":"Kapcsolat",
+    "ABOUT_DESC":"Facebook albumok kezelése",
+    "CONTACT_DESC":"Ferenczy Csilla",
+    "LIST_ALBUMS":"Albumok listázása",
+    "NOT_FOUND": "Az oldal nem található!",
+    "PAGES_TITLE": "Kattints egy oldalra az albumok listázásához",
+    "LIST_PAGES":"Oldalak listázása"  
 }

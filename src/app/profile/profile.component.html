@@ -1,3 +1,15 @@
-
-  <div [translate]="'WELCOME'" [translateParams]="{name: profile.name}"></div>
-<button class="btn btn-primary" (click)= "getGroups()" >{{'LIST_GROUPS' | translate}}</button>
+<div class="media" *ngIf="logged && profile.id">
+  <div class="media-left">
+    <img src="{{profile.picture.data.url}}" alt="photo" class="media-object">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading" [translate]="'WELCOME'" [translateParams]="{name: profile.name}"></h4>
+    <p>{{'WELCOME_MESSAGE' | translate}}</p>
+  </div>
+</div>
+<div class = "button-container">
+  <button *ngIf="!logged" class="btn btn-primary" (click)="login()">{{'LOGIN' | translate}}</button>
+  <button *ngIf="logged && profile.id" class="btn btn-primary" (click)="getGroups()">{{'LIST_GROUPS' | translate}}</button>
+  <button *ngIf="logged && profile.id" class="btn btn-primary" (click)="getAlbums()">{{'LIST_ALBUMS' | translate}}</button>
+  <button *ngIf="logged && profile.id" class="btn btn-primary" (click)="getPages()">{{'LIST_PAGES' | translate}}</button>
+</div>

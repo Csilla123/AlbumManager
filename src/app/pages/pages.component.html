@@ -1,0 +1,15 @@
+<h2>
+    {{'PAGES_TITLE' | translate}}</h2>
+  <ul>
+    <li *ngFor="let page of pages" class="page">
+      <div class="media">
+        <div class="media-left">
+          <img src="{{page.cover? page.cover.source : ''}}" alt="{{page.name}}" class="media-object" width="300">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><a [routerLink]="['/albums',page.id,page.name]">{{page.name}}</a></h4>
+          <p>{{page.description}}</p>
+        </div>
+      </div>
+    </li>
+  </ul>

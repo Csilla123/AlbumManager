@@ -16,6 +16,9 @@ import { AlbumManagerService } from './album-manager.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { PagesComponent } from './pages/pages.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,7 +32,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     AlbumsComponent,
     PhotosComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutComponent,
+    ContactComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,8 +54,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     RouterModule.forRoot([
       { path: '', component: ProfileComponent },
       { path: 'groups/:userId', component: GroupsComponent },
+      { path: 'pages/:userId', component: PagesComponent },
       { path: 'albums/:groupId/:groupName', component: AlbumsComponent },
+      { path: 'albums/:groupId', component: AlbumsComponent },
       { path: 'photos/:albumId/:albumName', component: PhotosComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent },
       { path: '**', component: NotFoundComponent },
     ])
   ],

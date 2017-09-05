@@ -1,7 +1,15 @@
-
-<h2>{{'GROUPS_TITLE' | translate}}</h2>
+<h2>
+  {{'GROUPS_TITLE' | translate}}</h2>
 <ul>
   <li *ngFor="let group of groups" class="group">
-    <a [routerLink]="['/albums',group.id,group.name]" >{{group.name}}</a>
+    <div class="media">
+      <div class="media-left">
+        <img src="{{group.cover.source}}" alt="photo" class="media-object" width="300">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a [routerLink]="['/albums',group.id,group.name]">{{group.name}}</a></h4>
+        <p>{{group.description}}</p>
+      </div>
+    </div>
   </li>
 </ul>
