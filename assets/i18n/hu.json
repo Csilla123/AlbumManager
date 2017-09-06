@@ -23,5 +23,6 @@
     "LIST_ALBUMS":"Albumok listázása",
     "NOT_FOUND": "Az oldal nem található!",
     "PAGES_TITLE": "Kattints egy oldalra az albumok listázásához",
-    "LIST_PAGES":"Oldalak listázása"  
+    "LIST_PAGES":"Oldalak listázása",
+    "NO_ALBUM":"Nem találhatók albumok!"  
 }
