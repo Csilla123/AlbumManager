@@ -23,5 +23,6 @@
     "LIST_ALBUMS":"List albums",
     "NOT_FOUND": "Page not found!",
     "PAGES_TITLE": "Select a page you manage, then click on it to list albums" ,
-    "LIST_PAGES":"List pages"
+    "LIST_PAGES":"List pages",
+    "NO_ALBUM":"Albums not found!"
 }
