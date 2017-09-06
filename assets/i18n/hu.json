@@ -25,5 +25,6 @@
     "PAGES_TITLE": "Kattints egy oldalra az albumok listázásához",
     "LIST_PAGES":"Oldalak listázása",
     "NO_ALBUM":"Nem találhatók albumok!",
-    "NO_GROUP":"Nem találhatók csoportok!" 
+    "NO_GROUP":"Nem találhatók csoportok!",
+    "NO_PAGE":"Nem találhatók oldalak!" 
 }

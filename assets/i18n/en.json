@@ -25,5 +25,6 @@
     "PAGES_TITLE": "Select a page you manage, then click on it to list albums" ,
     "LIST_PAGES":"List pages",
     "NO_ALBUM":"Albums not found!",
-    "NO_GROUP":"Groups not found!"
+    "NO_GROUP":"Groups not found!",
+    "NO_PAGE":"Pages not found!"
 }
