@@ -3,9 +3,9 @@
     "HOME": "Főoldal",
     "PRIVACY_POLICY": "Adatvédelmi szabályzat",
     "WELCOME":"Helló {{name}}!",
-    "LIST_GROUPS": "Csoportok listázása",
+    "LIST_GROUPS": "Csoportok",
     "GROUPS_TITLE": "Kattints egy csoportra az albumok listázásához",
-    "SELECT_ALBUM": "Kattints az albumra a fényképek listázásához",
+    "SELECT_ALBUM": "Kattints az album fotójára fényképek listázásához",
     "LINK_TO_FB": "Megnyitás Facebookon",
     "ALBUMS_OF_GROUP": "{{group}} albumai:",
     "PHOTOS_OF_ALBUM": "{{album}} album fotói:",
@@ -20,8 +20,13 @@
     "CONTACT":"Kapcsolat",
     "ABOUT_DESC":"Facebook albumok kezelése",
     "CONTACT_DESC":"Ferenczy Csilla",
-    "LIST_ALBUMS":"Albumok listázása",
+    "LIST_ALBUMS":"Albumok",
     "NOT_FOUND": "Az oldal nem található!",
     "PAGES_TITLE": "Kattints egy oldalra az albumok listázásához",
-    "LIST_PAGES":"Oldalak listázása"  
+    "LIST_PAGES":"Oldalak",
+    "NO_ALBUM":"Nem találhatók albumok!",
+    "NO_GROUP":"Nem találhatók csoportok!",
+    "NO_PAGE":"Nem találhatók oldalak!" ,
+    "LIST_PHOTOS":"Fényképek",
+    "NO_PHOTO": "Photos not found!"
 }

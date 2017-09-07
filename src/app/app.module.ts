@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PagesComponent } from './pages/pages.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     HttpModule,
     HttpClientModule,
+    NgbModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -58,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       { path: 'albums/:groupId/:groupName', component: AlbumsComponent },
       { path: 'albums/:groupId', component: AlbumsComponent },
       { path: 'photos/:albumId/:albumName', component: PhotosComponent },
+      { path: 'photos/:albumId', component: PhotosComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: '**', component: NotFoundComponent },

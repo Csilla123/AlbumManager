@@ -11,7 +11,7 @@ export class PhotosComponent implements OnInit {
 
   constructor(private service: AlbumManagerService, private route: ActivatedRoute, private router: Router) { }
   
-    photos = [];
+    photos: any[];
     albumId :string;
     albumName :string;
   

@@ -28,6 +28,10 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/pages', this.profile.id]);
   }
 
+  getPhotos() {
+    this.router.navigate(['/photos', this.profile.id]);
+  }
+
   getAlbums() {
     this.router.navigate(['/albums', this.profile.id]);
   }

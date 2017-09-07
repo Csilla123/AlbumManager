@@ -11,7 +11,7 @@ export class GroupsComponent implements OnInit {
 
   constructor(private service: AlbumManagerService,private route: ActivatedRoute, private router: Router) { }
   
-    groups = [];
+    groups:any[];
     profileId :string;
   
     ngOnInit() {

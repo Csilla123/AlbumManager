@@ -11,7 +11,7 @@ export class PagesComponent implements OnInit {
 
   constructor(private service: AlbumManagerService,private route: ActivatedRoute, private router: Router) { }
   
-    pages = [];
+    pages:any[];
     profileId :string;
   
     ngOnInit() {

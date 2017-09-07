@@ -11,7 +11,7 @@ export class AlbumsComponent implements OnInit {
 
   constructor(private service: AlbumManagerService, private route: ActivatedRoute,private router: Router) { }
 
-  albums = [];
+  albums:any[];
   groupId: string;
   groupName: string;
 

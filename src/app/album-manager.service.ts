@@ -36,8 +36,7 @@ export class AlbumManagerService {
     const loginOptions: LoginOptions = {
       enable_profile_selector: true,
       return_scopes: true,
-     // scope: 'public_profile,user_friends,email,pages_show_list,user_photos, user_managed_groups'
-      scope: 'public_profile,user_friends,email, user_managed_groups'
+      scope: 'public_profile,user_friends,email, user_managed_groups, user_photos, manage_pages'
     };
 
     return this.fb.login(loginOptions)
@@ -108,7 +107,7 @@ export class AlbumManagerService {
     return this.fb.api('/' + groupId + '/albums?limit=100&fields=cover_photo{images},name,description,created_time,link')
       .then((res: any) => {
         albums = res.data;
-        if (res.paging.next) {
+        if (res.paging && res.paging.next) {
           return this.getNextAlbums(res.paging.next, albums).then((res: any) => {
             this.albumCache.push({ id: groupId, data: albums });
             return albums.sort(this.sortedByCreationDateDesc);
@@ -141,7 +140,7 @@ export class AlbumManagerService {
   getNextAlbums(next, albums) {
     return this.fb.api(next).then((res: any) => {
       albums.push.apply(albums, res.data);
-      if (res.paging.next) {
+      if (res.paging && res.paging.next) {
         return this.getNextAlbums(res.paging.next, albums);
       } else {
         return;
@@ -154,10 +153,10 @@ export class AlbumManagerService {
 */
   getAlbumPhotos(albumId: string) {
     let photos: any[];
-    return this.fb.api('/' + albumId + '/photos?fields=name,images,source,reactions.limit(1000),comments.limit(100)')
+    return this.fb.api('/' + albumId + '/photos?type=uploaded&fields=name,images,source,comments.limit(100),reactions.type(LIKE).limit(0).summary(total_count).as(reactions_likes)')
       .then((res: any) => {
         photos = this.mapPhotosArray(res.data);
-        if (res.paging.next) {
+        if (res.paging && res.paging.next) {
           return this.getNextPhotos(res.paging.next, photos).then((res: any) => {
             return photos.sort(this.sortByLikesDesc);
           });
@@ -171,7 +170,7 @@ export class AlbumManagerService {
   getNextPhotos(next, photos) {
     return this.fb.api(next).then((res: any) => {
       photos.push.apply(photos, this.mapPhotosArray(res.data));
-      if (res.paging.next) {
+      if (res.paging && res.paging.next) {
         return this.getNextPhotos(res.paging.next, photos);
       } else {
         return;
@@ -190,9 +189,9 @@ export class AlbumManagerService {
     return {
       id: photo.id,
       name: photo.name,
-      likes: photo.reactions ? photo.reactions.data.length : 0,
+      likes: photo.reactions_likes.summary.total_count,
       source: photo.images[0].source,
-      link:photo.source,
+      link: photo.source,
       comments: photo.comments ? photo.comments.data.map(comment => comment.from.name + ": " + comment.message).join(";") : ""
     }
   }

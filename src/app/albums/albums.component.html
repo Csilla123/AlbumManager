@@ -1,12 +1,15 @@
-<div class="center">
+<div *ngIf="albums && albums.length >0" class="center">
   <h2 *ngIf="groupName" [translate]="'ALBUMS_OF_GROUP'" [translateParams]="{group: groupName}"></h2>
   <h3>{{'SELECT_ALBUM' | translate }} </h3>
 </div>
 
-<div *ngIf="albums.length ==0" class="center">
+<div *ngIf="!albums" class="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loading...">
 </div>
-<ul class="list" *ngIf="albums.length >0">
+<div *ngIf="albums && albums.length == 0" class="center">
+  <h3>{{'NO_ALBUM' | translate }}</h3>
+</div>
+<ul class="list" *ngIf="albums && albums.length >0">
   <li class="list-item" *ngFor="let album of albums">
     <div class="list-content">
       <h3>{{album.name}}</h3>

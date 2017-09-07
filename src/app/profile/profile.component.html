@@ -1,4 +1,4 @@
-<div class="media" *ngIf="logged && profile.id">
+<div class="media" *ngIf="logged && profile && profile.id">
   <div class="media-left">
     <img src="{{profile.picture.data.url}}" alt="photo" class="media-object">
   </div>
@@ -9,7 +9,8 @@
 </div>
 <div class = "button-container">
   <button *ngIf="!logged" class="btn btn-primary" (click)="login()">{{'LOGIN' | translate}}</button>
-  <button *ngIf="logged && profile.id" class="btn btn-primary" (click)="getGroups()">{{'LIST_GROUPS' | translate}}</button>
-  <button *ngIf="logged && profile.id" class="btn btn-primary" (click)="getAlbums()">{{'LIST_ALBUMS' | translate}}</button>
-  <button *ngIf="logged && profile.id" class="btn btn-primary" (click)="getPages()">{{'LIST_PAGES' | translate}}</button>
+  <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getGroups()">{{'LIST_GROUPS' | translate}}</button>
+  <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getPages()">{{'LIST_PAGES' | translate}}</button>
+  <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getAlbums()">{{'LIST_ALBUMS' | translate}}</button>
+  <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getPhotos()">{{'LIST_PHOTOS' | translate}}</button>
 </div>

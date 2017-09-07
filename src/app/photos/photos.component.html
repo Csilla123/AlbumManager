@@ -1,5 +1,14 @@
-<h2 [translate]="'PHOTOS_OF_ALBUM'" [translateParams]="{album: albumName}"></h2>
-<table>
+<div *ngIf="photos && photos.length >0" class="center">
+  <h2 *ngIf="albumName" [translate]="'PHOTOS_OF_ALBUM'" [translateParams]="{album: albumName}"></h2>
+</div>
+
+<div *ngIf="!photos" class="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" alt="Loading...">
+</div>
+<div *ngIf="photos && photos.length == 0" class="center">
+  <h3>{{'NO_PHOTO' | translate }}</h3>
+</div>
+<table *ngIf="photos && photos.length >0">
   <tr>
     <th>{{'NUMBER' | translate}}</th>
     <th>{{'LIKES' | translate}}</th>

@@ -41,7 +41,7 @@ h2 {
     width: 20%;
   }
 }
-@media all and (min-width: 80em) {
+@media all and (min-width: 100em) {
   .list-item {
     width: 10%;
   }
