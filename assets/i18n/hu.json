@@ -5,7 +5,7 @@
     "WELCOME":"Helló {{name}}!",
     "LIST_GROUPS": "Csoportok",
     "GROUPS_TITLE": "Kattints egy csoportra az albumok listázásához",
-    "SELECT_ALBUM": "Kattints az albumra a fényképek listázásához",
+    "SELECT_ALBUM": "Kattints az album fotójára fényképek listázásához",
     "LINK_TO_FB": "Megnyitás Facebookon",
     "ALBUMS_OF_GROUP": "{{group}} albumai:",
     "PHOTOS_OF_ALBUM": "{{album}} album fotói:",
