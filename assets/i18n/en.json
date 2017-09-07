@@ -3,7 +3,7 @@
     "HOME": "Home",
     "PRIVACY_POLICY": "Privacy policy",
     "WELCOME":"Welcome {{name}}!",
-    "LIST_GROUPS": "List groups",
+    "LIST_GROUPS": "Groups",
     "GROUPS_TITLE": "Select a group in which you are admin, then click on it to list albums",
     "SELECT_ALBUM": "Select an album, then click on it to list photos",
     "LINK_TO_FB": "Link to Facebook",
@@ -20,11 +20,13 @@
     "CONTACT":"Contact",
     "ABOUT_DESC":"Manage your Facebook albums with Album Manager app",
     "CONTACT_DESC":"Ferenczy Csilla",
-    "LIST_ALBUMS":"List albums",
+    "LIST_ALBUMS":"Albums",
     "NOT_FOUND": "Page not found!",
     "PAGES_TITLE": "Select a page you manage, then click on it to list albums" ,
-    "LIST_PAGES":"List pages",
+    "LIST_PAGES":"Pages",
     "NO_ALBUM":"Albums not found!",
     "NO_GROUP":"Groups not found!",
-    "NO_PAGE":"Pages not found!"
+    "NO_PAGE":"Pages not found!",
+    "LIST_PHOTOS":"Photos",
+    "NO_PHOTO": "Photos not found!"
 }
