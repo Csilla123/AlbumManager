@@ -7,7 +7,7 @@
     "GROUPS_TITLE": "Select a group in which you are admin, then click on it to list albums",
     "SELECT_ALBUM": "Select an album, then click on its photo to list photos",
     "LINK_TO_FB": "Link to Facebook",
-    "ALBUMS_OF_GROUP": "Albums of {{group}}:",
+    "ALBUMS_OF_NODE": "Albums of {{node}}:",
     "PHOTOS_OF_ALBUM": "Photos of album {{album}}:",
     "NUMBER": "Nr.",
     "LIKES": "Likes",
@@ -28,5 +28,6 @@
     "NO_GROUP":"Groups not found!",
     "NO_PAGE":"Pages not found!",
     "LIST_PHOTOS":"Photos",
+    "PHOTOS_BY_LIKES":"List photos by likes",
     "NO_PHOTO": "Photos not found!"
 }

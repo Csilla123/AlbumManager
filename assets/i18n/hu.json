@@ -5,12 +5,12 @@
     "WELCOME":"Helló {{name}}!",
     "LIST_GROUPS": "Csoportok",
     "GROUPS_TITLE": "Kattints egy csoportra az albumok listázásához",
-    "SELECT_ALBUM": "Kattints az album fotójára fényképek listázásához",
+    "SELECT_ALBUM": "Kattints az album fotójára a fényképek listázásához",
     "LINK_TO_FB": "Megnyitás Facebookon",
-    "ALBUMS_OF_GROUP": "{{group}} albumai:",
+    "ALBUMS_OF_NODE": "{{node}} albumai:",
     "PHOTOS_OF_ALBUM": "{{album}} album fotói:",
     "NUMBER": "Sorszám",
-    "LIKES": "Likeok száma",
+    "LIKES": "Lájkok száma",
     "PHOTO": "Kép",
     "AUTHOR" : "Készítette",
     "COMMENTS": "Kommentek",
@@ -28,5 +28,6 @@
     "NO_GROUP":"Nem találhatók csoportok!",
     "NO_PAGE":"Nem találhatók oldalak!" ,
     "LIST_PHOTOS":"Fényképek",
-    "NO_PHOTO": "Photos not found!"
+    "PHOTOS_BY_LIKES":"Fényképek listája lájkok szerint",
+    "NO_PHOTO": "Nem találhatók fényképek!"
 }
