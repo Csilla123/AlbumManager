@@ -8,20 +8,35 @@
 <div *ngIf="photos && photos.length == 0" class="center">
   <h3>{{'NO_PHOTO' | translate }}</h3>
 </div>
-<table *ngIf="photos && photos.length >0">
-  <tr>
-    <th>{{'NUMBER' | translate}}</th>
-    <th>{{'LIKES' | translate}}</th>
-    <th>{{'PHOTO' | translate}}</th>
-    <th>{{'AUTHOR' | translate}}</th>
-    <th>{{'COMMENTS'| translate}}</th>
-  </tr>
-  <tr *ngFor="let photo of photos; index as i" class="photo">
-    <td>{{i+1}}</td>
-    <td>{{photo.likes}}</td>
-    <td><a href="{{photo.link}}"><img src="{{photo.source}}" alt="" width="200px"></a></td>
-    <td> {{photo.name}}</td>
-    <td>{{photo.comments}}</td>
-  </tr>
-</table>
+<div class="content container search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300"
+  [scrollWindow]="false" [immediateCheck]="true" (scrolled)="onScroll()">
 
+  <table *ngIf="sort==='LIKE' && photos && photos.length >0">
+    <tr>
+      <th>{{'NUMBER' | translate}}</th>
+      <th>{{'LIKES' | translate}}</th>
+      <th>{{'PHOTO' | translate}}</th>
+      <th>{{'AUTHOR' | translate}}</th>
+      <th>{{'COMMENTS'| translate}}</th>
+    </tr>
+    <tr *ngFor="let photo of photos; index as i" class="photo">
+      <td>{{i+1}}</td>
+      <td>{{photo.likes}}</td>
+      <td><a href="{{photo.link}}"><img class="like_img" src="{{photo.source}}" alt="{{photo.name}}"></a></td>
+      <td> {{photo.name}}</td>
+      <td>{{photo.comments}}</td>
+    </tr>
+  </table>
+
+  <ul class="list" *ngIf="sort==='DATE' && photos && photos.length >0">
+    <li class="list-item" *ngFor="let photo of photos">
+      <div class="list-content">
+        <h3>{{photo.name}}</h3>
+        <a href="{{photo.link}}"><img height="400" src="{{photo.source}}" alt="{{photo.name}}"></a>
+        <p>{{photo.description}}</p>
+        <p>{{'LIKES' | translate}}: {{photo.likes}}</p>
+      </div>
+    </li>
+  </ul>
+
+</div>

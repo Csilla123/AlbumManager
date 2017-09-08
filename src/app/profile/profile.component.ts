@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getPhotos() {
-    this.router.navigate(['/photos', this.profile.id]);
+    this.router.navigate(['/photos', this.profile.id,"","DATE"]);
   }
 
   getAlbums() {

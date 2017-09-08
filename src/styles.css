@@ -6,3 +6,9 @@
 .center{
     text-align: center;
 }
+
+.content {
+    overflow-y: auto;
+    max-height: 80vh;
+    width: auto;
+  }

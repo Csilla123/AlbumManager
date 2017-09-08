@@ -9,15 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlbumsComponent implements OnInit {
 
-  constructor(private service: AlbumManagerService, private route: ActivatedRoute,private router: Router) { }
+  constructor(private service: AlbumManagerService, private route: ActivatedRoute, private router: Router) { }
 
-  albums:any[];
-  groupId: string;
-  groupName: string;
+  albums: any[];
+  nextToken: string;
+  nodeId: string;
+  nodeName: string;
 
   ngOnInit() {
-    this.groupId = this.route.snapshot.paramMap.get('groupId');
-    this.groupName = this.route.snapshot.paramMap.get('groupName');
+    this.nodeId = this.route.snapshot.paramMap.get('nodeId');
+    this.nodeName = this.route.snapshot.paramMap.get('nodeName');
     this.service.getLoginStatus().then((res) => {
       if (res.status === "connected") {
         this.init();
@@ -28,10 +29,32 @@ export class AlbumsComponent implements OnInit {
   }
 
   init() {
-    this.service.getAllAlbumsSortedByCreationDateDesc(this.groupId).then(
-      (res: any) => {
-        this.albums = res;
-      }
+    this.service.getAlbumsSortedByUpdateTimeDesc(this.nodeId).then(
+      (res: any) => this.setAlbums(res)
     );
   }
+
+  onScroll() {
+    console.log('scrolled!!')
+    if (this.nextToken) {
+      this.service.getNextAlbumsSortedByUpdateTimeDesc(this.nextToken).then(
+        (res: any) => this.setAlbums(res)
+      );
+    }
+  }
+
+  setAlbums(res) {
+    {
+      if(!this.albums){
+        this.albums = [];
+      }
+      this.albums.push.apply(this.albums, res.data);
+      if (res.paging && res.paging.next) {
+        this.nextToken = res.paging.next;
+      } else {
+        this.nextToken = null;
+      }
+    }
+  }
+
 }

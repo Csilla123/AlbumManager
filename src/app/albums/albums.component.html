@@ -1,5 +1,5 @@
 <div *ngIf="albums && albums.length >0" class="center">
-  <h2 *ngIf="groupName" [translate]="'ALBUMS_OF_GROUP'" [translateParams]="{group: groupName}"></h2>
+  <h2 *ngIf="nodeName" [translate]="'ALBUMS_OF_NODE'" [translateParams]="{node: nodeName}"></h2>
   <h3>{{'SELECT_ALBUM' | translate }} </h3>
 </div>
 
@@ -9,15 +9,19 @@
 <div *ngIf="albums && albums.length == 0" class="center">
   <h3>{{'NO_ALBUM' | translate }}</h3>
 </div>
-<ul class="list" *ngIf="albums && albums.length >0">
-  <li class="list-item" *ngFor="let album of albums">
-    <div class="list-content">
-      <h3>{{album.name}}</h3>
-      <a [routerLink]="['/photos',album.id, album.name]">
+<div class="content container search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="300"
+  [scrollWindow]="false" [immediateCheck]="true" (scrolled)="onScroll()">
+  <ul class="list" *ngIf="albums && albums.length >0">
+    <li class="list-item" *ngFor="let album of albums">
+      <div class="list-content">
+        <h3>{{album.name}}</h3>
+        <a [routerLink]="['/photos',album.id, album.name,'DATE']">
       <img height="200" src="{{album.cover_photo ? album.cover_photo.images[0].source : ''}}" alt="{{album.name}}"/>
       </a>
-      <p>{{album.description}}</p>
-      <a href="{{album.link}}">{{'LINK_TO_FB' | translate}}</a>
-    </div>
-  </li>
-</ul>
+        <p>{{album.description}}</p>
+        <a href="{{album.link}}">{{'LINK_TO_FB' | translate}}</a>
+        <a [routerLink]="['/photos',album.id, album.name,'LIKE']">{{'PHOTOS_BY_LIKES' | translate}}</a>
+      </div>
+    </li>
+  </ul>
+</div>

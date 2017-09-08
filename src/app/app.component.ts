@@ -13,6 +13,6 @@ export class AppComponent {
 
     translate.addLangs(['hu']);
     translate.use(translate.getBrowserLang());
-
   }
+
 }

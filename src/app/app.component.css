@@ -21,13 +21,6 @@ html {
   /* Custom page CSS
   -------------------------------------------------- */
   /* Not required for template or sticky footer method. */
-  
-  .content {
-    margin: 60px 15px 0;
-    overflow-y: auto;
-    max-height: 90vh;
-    width: auto;
-  }
   .container .text-muted {
     margin: 20px 0;
   }
@@ -40,5 +33,10 @@ html {
   code {
     font-size: 80%;
   }
+
+  .main-container{
+    margin: 60px 15px 0;
+  }
+
   
   

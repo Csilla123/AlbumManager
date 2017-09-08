@@ -20,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PagesComponent } from './pages/pages.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,6 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    InfiniteScrollModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
@@ -57,10 +59,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       { path: '', component: ProfileComponent },
       { path: 'groups/:userId', component: GroupsComponent },
       { path: 'pages/:userId', component: PagesComponent },
-      { path: 'albums/:groupId/:groupName', component: AlbumsComponent },
-      { path: 'albums/:groupId', component: AlbumsComponent },
-      { path: 'photos/:albumId/:albumName', component: PhotosComponent },
-      { path: 'photos/:albumId', component: PhotosComponent },
+      { path: 'albums/:nodeId/:nodeName', component: AlbumsComponent },
+      { path: 'albums/:nodeId', component: AlbumsComponent },
+      { path: 'photos/:nodeId/:nodeName/:sort', component: PhotosComponent },
+      { path: 'photos/:nodeId/:nodeName', component: PhotosComponent },
+      { path: 'photos/:nodeId', component: PhotosComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: '**', component: NotFoundComponent },

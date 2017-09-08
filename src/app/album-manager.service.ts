@@ -75,10 +75,10 @@ export class AlbumManagerService {
 
 
   /**
-  * Get albums for given profile
+  * Get groups for given profile
   */
   getGroups(userId: string) {
-    return this.fb.api('/' + userId + '/groups?fields=name,description,cover')
+    return this.fb.api('/' + userId + '/groups?limit=100&fields=name,description,cover')
       .then((res: any) => {
         console.log('Got groups', res);
         return res.data;
@@ -90,7 +90,7 @@ export class AlbumManagerService {
   * Get pages for given profile
   */
   getPages(userId: string) {
-    return this.fb.api('/' + userId + '/accounts?fields=name,description,cover')
+    return this.fb.api('/' + userId + '/accounts?limit=100&fields=name,description,cover')
       .then((res: any) => {
         console.log('Got pages', res);
         return res.data;
@@ -98,26 +98,41 @@ export class AlbumManagerService {
       .catch(this.handleError);
   }
 
-  getAllAlbumsSortedByCreationDateDesc(groupId: string) {
+  getAllAlbumsSortedByCreationDateDesc(nodeId: string) {
     let albums: any[];
-    let cachedAlbums = this.findInCahce(this.albumCache, groupId);
+    let cachedAlbums = this.findInCahce(this.albumCache, nodeId);
     if (cachedAlbums) {
       return Promise.resolve(cachedAlbums.data);
     }
-    return this.fb.api('/' + groupId + '/albums?limit=100&fields=cover_photo{images},name,description,created_time,link')
+    return this.fb.api('/' + nodeId + '/albums?limit=100&fields=cover_photo{images},name,description,created_time,link')
       .then((res: any) => {
         albums = res.data;
         if (res.paging && res.paging.next) {
           return this.getNextAlbums(res.paging.next, albums).then((res: any) => {
-            this.albumCache.push({ id: groupId, data: albums });
+            this.albumCache.push({ id: nodeId, data: albums });
             return albums.sort(this.sortedByCreationDateDesc);
           });
         } else {
-          this.albumCache.push({ id: groupId, data: albums });
+          this.albumCache.push({ id: nodeId, data: albums });
           return albums.sort(this.sortedByCreationDateDesc);
         }
 
       })
+      .catch(this.handleError);
+  }
+
+  getAlbumsSortedByUpdateTimeDesc(nodeId: string) {
+    return this.fb.api('/' + nodeId + '/albums?order=reverse_chronological&limit=100&fields=cover_photo{images},name,description,created_time,link')
+      .then((res: any) => {
+        return res;
+      })
+      .catch(this.handleError);
+  }
+
+  getNextAlbumsSortedByUpdateTimeDesc(nextToken: string) {
+    return this.fb.api(nextToken).then((res: any) => {
+      return res;
+    })
       .catch(this.handleError);
   }
 
@@ -149,11 +164,11 @@ export class AlbumManagerService {
   }
 
   /**
-* Get albums for given group
+* Get all photos
 */
-  getAlbumPhotos(albumId: string) {
+  getAllPhotos(nodeId: string) {
     let photos: any[];
-    return this.fb.api('/' + albumId + '/photos?type=uploaded&fields=name,images,source,comments.limit(100),reactions.type(LIKE).limit(0).summary(total_count).as(reactions_likes)')
+    return this.fb.api('/' + nodeId + '/photos?type=uploaded&fields=name,images,source,comments.limit(100),reactions.type(LIKE).limit(0).summary(total_count).as(reactions_likes)')
       .then((res: any) => {
         photos = this.mapPhotosArray(res.data);
         if (res.paging && res.paging.next) {
@@ -179,6 +194,23 @@ export class AlbumManagerService {
   }
   mapPhotosArray(photos) {
     return photos.map(this.mapPhoto);
+  }
+
+  getPhotosSortedByUpdateTimeDesc(nodeId: string) {
+    return this.fb.api('/' + nodeId + '/photos?order=reverse_chronological&type=uploaded&fields=name,images,source,comments.limit(100),reactions.type(LIKE).limit(0).summary(total_count).as(reactions_likes)')
+      .then((res: any) => {
+        res.data = this.mapPhotosArray(res.data);
+        return res;
+      })
+      .catch(this.handleError);
+  }
+
+  getNextPhotosSortedByUpdateTimeDesc(nextToken: string) {
+    return this.fb.api(nextToken).then((res: any) => {
+      res.data = this.mapPhotosArray(res.data);
+      return res;
+    })
+      .catch(this.handleError);
   }
 
   sortByLikesDesc(a, b) {
