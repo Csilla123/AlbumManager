@@ -31,5 +31,7 @@
     "NO_PAGE":"Pages not found!",
     "LIST_PHOTOS":"Photos",
     "PHOTOS_BY_LIKES":"List photos by likes",
-    "NO_PHOTO": "Photos not found!"
+    "NO_PHOTO": "Photos not found!",
+    "SEARCH_ALBUM":"Search in albums",
+    "SHOW_ALL": "Show all albums"
 }
