@@ -31,5 +31,7 @@
     "NO_PAGE":"Nem találhatók oldalak!" ,
     "LIST_PHOTOS":"Fényképek",
     "PHOTOS_BY_LIKES":"Fényképek listája lájkok szerint",
-    "NO_PHOTO": "Nem találhatók fényképek!"
+    "NO_PHOTO": "Nem találhatók fényképek!",
+    "SEARCH_ALBUM":"Keresés az albumok között",
+    "SHOW_ALL": "Mutasd az összes albumot"
 }

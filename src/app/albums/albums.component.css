@@ -57,3 +57,17 @@ h2 {
 	flex: 1 0 auto;
 }
 
+.search-container{
+  padding:20px;
+}
+
+.content {
+  max-height: 70vh;
+}
+
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
