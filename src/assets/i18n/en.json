@@ -15,6 +15,8 @@
     "AUTHOR" : "Author",
     "COMMENTS": "Comments",
     "LOGIN": "Log in to Facebook",
+    "LOGOUT": "Logout",
+    "PLEASE_LOG_IN": "Please log in to your Facebook account!",
     "WELCOME_MESSAGE": "Manage your Facebook albums with Album Manager app",
     "ABOUT": "About",
     "CONTACT":"Contact",

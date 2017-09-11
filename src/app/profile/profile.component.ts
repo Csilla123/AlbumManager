@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumManagerService } from '../album-manager.service';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'profile',
@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getPhotos() {
-    this.router.navigate(['/photos', this.profile.id,"","DATE"]);
+    this.router.navigate(['/photos', this.profile.id, "", "DATE"]);
   }
 
   getAlbums() {
@@ -37,27 +37,14 @@ export class ProfileComponent implements OnInit {
   }
 
   init() {
-    if(!this.profile.id ){
-    this.service.getLoginStatus().then((res) => {
-      if (res.status === "connected") {
-        this.logged = true;
-        this.service.getProfile().then(
-          (res: any) => {
-            this.profile = res;
-          });
-      } 
-    })
+      this.service.getLoginStatus().then((res) => {
+        if (res.status === "connected") {
+          this.logged = true;
+          this.service.getProfile().then(
+            (res: any) => {
+              this.profile = res;
+            });
+        }
+      })
   }
-
-  }
-
-  login(){
-    this.service.loginWithOptions().then(() => this.service.getProfile()).then(
-      (res: any) => {
-        this.logged = true;
-        this.profile = res;
-      }
-    );
-  }
-
 }

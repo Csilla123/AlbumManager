@@ -6,16 +6,18 @@
 <div *ngIf="groups && groups.length == 0" class="center">
   <h3>{{'NO_GROUP' | translate }}</h3>
 </div>
-<ul *ngIf="groups && groups.length >0">
-  <li *ngFor="let group of groups" class="group">
-    <div class="media">
-      <div class="media-left">
-        <img src="{{group.cover ? group.cover.source : ''}}" alt="photo" class="media-object" width="300">
+<div class="content">
+  <ul *ngIf="groups && groups.length >0">
+    <li *ngFor="let group of groups" class="group">
+      <div class="media">
+        <div class="media-left">
+          <img src="{{group.cover ? group.cover.source : ''}}" alt="photo" class="media-object" width="300">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><a [routerLink]="['/albums',group.id,group.name]">{{group.name}}</a></h4>
+          <p>{{group.description}}</p>
+        </div>
       </div>
-      <div class="media-body">
-        <h4 class="media-heading"><a [routerLink]="['/albums',group.id,group.name]">{{group.name}}</a></h4>
-        <p>{{group.description}}</p>
-      </div>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>

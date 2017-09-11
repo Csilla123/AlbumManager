@@ -45,7 +45,7 @@ export class AlbumsComponent implements OnInit {
 
   setAlbums(res) {
     {
-      if(!this.albums){
+      if (!this.albums) {
         this.albums = [];
       }
       this.albums.push.apply(this.albums, res.data);
@@ -56,5 +56,4 @@ export class AlbumsComponent implements OnInit {
       }
     }
   }
-
 }

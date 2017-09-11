@@ -38,5 +38,9 @@ html {
     margin: 60px 15px 0;
   }
 
+  a{
+    cursor: pointer;
+  }
+
   
   

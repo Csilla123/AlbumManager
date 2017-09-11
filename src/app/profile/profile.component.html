@@ -7,8 +7,10 @@
     <p>{{'WELCOME_MESSAGE' | translate}}</p>
   </div>
 </div>
+<div  *ngIf="!logged" >
+  <h4>{{'PLEASE_LOG_IN' | translate}}</h4>
+</div>
 <div class = "button-container">
-  <button *ngIf="!logged" class="btn btn-primary" (click)="login()">{{'LOGIN' | translate}}</button>
   <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getGroups()">{{'LIST_GROUPS' | translate}}</button>
   <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getPages()">{{'LIST_PAGES' | translate}}</button>
   <button *ngIf="logged && profile && profile.id" class="btn btn-primary" (click)="getAlbums()">{{'LIST_ALBUMS' | translate}}</button>

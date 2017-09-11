@@ -57,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FacebookModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent },
       { path: 'groups/:userId', component: GroupsComponent },
       { path: 'pages/:userId', component: PagesComponent },
       { path: 'albums/:nodeId/:nodeName', component: AlbumsComponent },

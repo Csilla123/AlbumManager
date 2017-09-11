@@ -13,9 +13,11 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a routerLink="/" routerLinkActive="active">{{"HOME" | translate}}</a></li>
+          <li *ngIf="logged" ><a (click)="getProfile()">{{'HOME' | translate}}</a></li>
         <li><a routerLink="/about" routerLinkActive="active">{{"ABOUT" | translate}}</a></li>
         <li><a routerLink="/contact" routerLinkActive="active">{{"CONTACT" | translate}}</a></li>
+        <li *ngIf="!logged" ><a (click)="login()">{{'LOGIN' | translate}}</a></li>
+        <li *ngIf="logged"><a (click)="logout()">{{'LOGOUT' | translate}}</a></li>
       </ul>
     </div>
   </div>

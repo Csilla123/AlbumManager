@@ -59,6 +59,11 @@ export class AlbumManagerService {
 */
   private handleError(error) {
     console.error('Error processing action', error);
+    return {data: []};
+  }
+
+  logout(){
+    return this.fb.logout();
   }
 
   /**
