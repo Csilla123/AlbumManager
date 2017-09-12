@@ -4,7 +4,7 @@
     "PRIVACY_POLICY": "Privacy policy",
     "WELCOME":"Welcome {{name}}!",
     "LIST_GROUPS": "Groups",
-    "GROUPS_TITLE": "Select a group in which you are admin, then click on it to list albums",
+    "GROUPS_TITLE": "Select a group in which you are admin, then click on its photo to list albums",
     "SELECT_ALBUM": "Select an album, then click on its photo to list photos",
     "LINK_TO_FB": "Link to Facebook",
     "ALBUMS_OF_NODE": "Albums of {{node}}:",

@@ -4,7 +4,7 @@
     "PRIVACY_POLICY": "Adatvédelmi szabályzat",
     "WELCOME":"Helló {{name}}!",
     "LIST_GROUPS": "Csoportok",
-    "GROUPS_TITLE": "Kattints egy csoportra az albumok listázásához",
+    "GROUPS_TITLE": "Kattints egy csoport fényképére az albumok listázásához",
     "SELECT_ALBUM": "Kattints az album fotójára a fényképek listázásához",
     "LINK_TO_FB": "Megnyitás Facebookon",
     "ALBUMS_OF_NODE": "{{node}} albumai:",
